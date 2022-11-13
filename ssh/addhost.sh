@@ -1,5 +1,4 @@
 #!/bin/bash
-# My Telegram : https://t.me/SLboy1
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -12,12 +11,12 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Getting
+MYIP=$(wget -qO- ipinfo.io/ip);
 clear
-read -rp "Input Your Domain For This Server :" -e SUB_DOMAIN
-echo "Host : $SUB_DOMAIN"
-echo $SUB_DOMAIN > /root/domain
-# / / Make Main Directory
-mkdir -p /usr/bin/xray
-mkdir -p /etc/xray
-cp /root/domain /etc/xray
-rm -f /root/cf.sh
+read -rp "Domain/Host : " -e domain
+echo "IP=$domain" >>/var/lib/lakmalstorevpn/ipvps.conf
+rm -rf /etc/xray/domain
+echo $domain > /etc/xray/domain
+certv2ray
+
+
